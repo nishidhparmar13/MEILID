@@ -1,26 +1,29 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+    --color-primary: #49c1b9;
+    --color-secondary: #30308d;
+    --color-background: #ebebeb;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer components {
+    .container-box {
+        @apply px-[10dvh] py-[10dvh]
+    }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+    .badge {
+        @apply mb-7 flex items-center gap-2 rounded-full bg-[#3DC5B826] px-5 py-2 text-sm font-semibold text-primary
+    }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    .badge-dot {
+        @apply h-2.5 w-2.5 rounded-full bg-primary
+    }
+
+    .heading {
+        @apply max-w-4xl text-center text-4xl font-extralight leading-[1.1] tracking-tight text-[#151515] md:text-5xl lg:text-6xl
+    }
+
+    .sub-heading {
+        @apply max-w-4xl text-center text-base font-light leading-relaxed text-gray-700 md:text-xl
+    }
 }
