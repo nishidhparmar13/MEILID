@@ -10,6 +10,7 @@ import Sustainability from "./sections/Sustainability";
 import FAQ from "./sections/FAQ";
 import FinalCTA from "./sections/FinalCTA";
 import Footer from "@/components/Footer";
+import VideoShowcase from "./sections/VideoShowcase";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <Hero />
       <Problem />
       <Solution />
+      <VideoShowcase />
       <HowItWorks />
       <Reviews />
       <WhyMEILID />
