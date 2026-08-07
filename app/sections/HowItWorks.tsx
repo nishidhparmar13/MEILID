@@ -96,6 +96,7 @@ const HowItWorks = () => {
 
     return (
         <section
+            id='how-it-works'
             ref={sectionRef}
             className="relative w-full overflow-hidden bg-background py-20 sm:py-24 md:py-32"
         >

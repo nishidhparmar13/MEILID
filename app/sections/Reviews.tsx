@@ -92,6 +92,7 @@ const Reviews = () => {
 
     return (
         <section
+            id="reviews"
             ref={sectionRef}
             className="relative flex min-h-dvh w-full flex-col items-center overflow-hidden bg-background px-5 py-20 sm:px-6 sm:py-24 md:px-10 md:py-32 lg:px-16"
         >

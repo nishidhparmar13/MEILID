@@ -13,12 +13,40 @@ import {
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isScrolled, setIsScrolled] = useState(false)
+    const [activeLink, setActiveLink] = useState("#how-it-works");
+
+
 
     const navLinks = [
         { href: '#how-it-works', label: 'How it works' },
         { href: '#reviews', label: 'Reviews' },
         { href: '#faq', label: 'FAQ' },
     ]
+
+    useEffect(() => {
+        const sections = navLinks.map((l) =>
+            document.querySelector(l.href)
+        );
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveLink(`#${entry.target.id}`);
+                    }
+                });
+            },
+            {
+                threshold: 0.5,
+            }
+        );
+
+        sections.forEach((section) => {
+            if (section) observer.observe(section);
+        });
+
+        return () => observer.disconnect();
+    }, []);
 
     // Track scroll position so the pill can react (subtle shadow/scale shift)
     useEffect(() => {
@@ -136,11 +164,20 @@ const Header = () => {
                                 <motion.div key={link.href} variants={navItemVariants}>
                                     <Link
                                         href={link.href}
-                                        className="group relative py-2 text-sm font-medium text-[#11143F]/60 transition-colors duration-300 hover:text-[#11143F]"
+                                        className={`group relative py-2 text-sm font-medium transition-colors duration-300 ${activeLink === link.href
+                                                ? "text-[#11143F]"
+                                                : "text-[#11143F]/60 hover:text-[#11143F]"
+                                            }`}
                                     >
                                         {link.label}
 
-                                        <span className="absolute bottom-0 left-1/2 h-[2px] w-1.5 -translate-x-1/2 scale-0 rounded-full bg-[#2DB9AE] transition-transform duration-300 group-hover:scale-100" />
+                                        <span
+                                            className={`absolute -bottom-0.5 left-1/2 h-[2px] rounded-full bg-[#2DB9AE] transition-all duration-300
+        ${activeLink === link.href
+                                                    ? "w-full -translate-x-1/2"
+                                                    : "w-0 -translate-x-1/2 group-hover:w-full"
+                                                }`}
+                                        />
                                     </Link>
                                 </motion.div>
                             ))}

@@ -62,7 +62,9 @@ const FAQ = () => {
     }
 
     return (
-        <section className="flex min-h-dvh w-full flex-col items-center bg-background px-5 py-20 sm:px-6 sm:py-24 md:px-10 md:py-28 lg:px-16">
+        <section
+            id="faq"
+            className="flex min-h-dvh w-full flex-col items-center bg-background px-5 py-20 sm:px-6 sm:py-24 md:px-10 md:py-28 lg:px-16">
 
             {/* Header */}
             <motion.div
