@@ -96,11 +96,11 @@ const Sustainability = () => {
                     {/* Heading */}
                     <motion.h2
                         variants={fadeUp}
-                        className="mt-6 max-w-xl text-[clamp(2.2rem,7vw,3.75rem)] font-bold leading-[1.1] tracking-tight text-primary sm:mt-7 sm:leading-[1.08] md:text-5xl lg:text-6xl"
+                        className="mt-6 max-w-xl heading flex flex-col items-start"
                     >
                         Good for your eyes.
                         <br />
-                        <span className="text-[#2DB9AE]">
+                        <span className="heading-highlight">
                             Good for the planet.
                         </span>
                     </motion.h2>

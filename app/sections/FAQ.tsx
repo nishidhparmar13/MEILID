@@ -84,7 +84,7 @@ const FAQ = () => {
 
                 <motion.h2 variants={fadeUp} className="heading mt-5 sm:mt-6">
                     Your questions,
-                    <span className="text-[#2DB9AE]"> answered.</span>
+                    <span className="heading-highlight"> answered.</span>
                 </motion.h2>
 
                 <motion.p

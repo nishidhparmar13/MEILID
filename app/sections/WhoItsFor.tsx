@@ -343,7 +343,7 @@ const WhoItsFor = () => {
                 className="flex max-w-4xl flex-col items-center gap-4 text-center"
             >
                 <motion.h2 variants={fadeUp} className="heading">
-                    Not just for dry eyes — your all-in-one eyelid care solution
+                    Not just for dry eyes your <span className="heading-highlight">all-in-one</span> eyelid care solution
                 </motion.h2>
             </motion.div>
 

@@ -161,7 +161,7 @@ const Solution = () => {
                     whileInView="show"
                     viewport={{ once: true, amount: 0.5 }}
                     variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12 } } }}
-                    className="mx-auto flex max-w-3xl flex-col items-center text-center"
+                    className="mx-auto flex max-w-7xl flex-col items-center text-center"
                 >
 
                     <motion.div variants={fadeUp} className="badge">
@@ -173,7 +173,7 @@ const Solution = () => {
                     </motion.div>
 
                     <motion.h2 variants={fadeUp} className="heading mt-5 sm:mt-6">
-                        Meet MEILID: the at-home eyelid care system that actually works
+                        Meet <span className="heading-highlight">MEILID</span>: the at-home eyelid care system that actually works
                     </motion.h2>
 
                     <motion.p variants={fadeUp} className="sub-heading mt-4 max-w-2xl sm:mt-5">
@@ -225,13 +225,15 @@ const Solution = () => {
                             style={{ x: tiltX, y: tiltY, rotateX, rotateY }}
                             className="relative z-10 flex h-[260px] w-[260px] items-center justify-center rounded-[50%] sm:h-[320px] sm:w-[320px] lg:h-[380px] lg:w-[380px]"
                         >
-                            <motion.img
-                                src="/images/meilid-device.png"
-                                alt="MEILID eyelid care device"
-                                whileHover={{ scale: 1.06 }}
-                                transition={{ duration: 0.4, ease }}
-                                className="relative z-20 w-[190px] object-contain drop-shadow-[0_30px_35px_rgba(20,25,80,0.18)] sm:w-[240px] lg:w-[280px]"
-                            />
+                            <div className='w-full h-full overflow-hidden flex items-center bg-white rounded-full'>
+                                <motion.img
+                                    src="/images/solution.png"
+                                    alt="MEILID eyelid care device"
+                                    whileHover={{ scale: 1.06 }}
+                                    transition={{ duration: 0.4, ease }}
+                                    className="relative z-20 w-full object-cover "
+                                />
+                            </div>
                         </motion.div>
 
                         {/* Floating badge */}

@@ -219,11 +219,10 @@ const VideoShowcase = () => {
                     whileInView="show"
                     viewport={{ once: true, amount: 0.5 }}
                     variants={headingGroup}
-                    className="mt-8 max-w-4xl text-center text-[clamp(2.2rem,7vw,5.5rem)] font-light leading-[1.05] tracking-[-0.03em] text-white sm:mt-10 sm:leading-[0.98] sm:tracking-[-0.04em]"
+                    className="mt-8 max-w-4xl text-center sm:mt-10 heading"
                 >
-                    <AnimatedLine text="Watch the routine" />
-                    <br />
-                    <AnimatedLine text="in real time." className="font-medium text-[#3DC5B8]" />
+                    <AnimatedLine text="Watch the routine" className="heading text-white" />
+                    <AnimatedLine text="in real time." className="heading-highlight" />
                 </motion.h2>
 
                 <motion.p

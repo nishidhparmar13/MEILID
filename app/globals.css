@@ -20,7 +20,11 @@
     }
 
     .heading {
-        @apply max-w-4xl text-center text-4xl font-extralight leading-[1.1] tracking-tight text-[#151515] md:text-5xl lg:text-6xl
+        @apply max-w-7xl text-center text-4xl font-light leading-[1.1] tracking-tight text-[#151515] md:text-5xl lg:text-6xl
+    }
+
+    .heading-highlight {
+        @apply text-primary font-medium
     }
 
     .sub-heading {

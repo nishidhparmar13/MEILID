@@ -130,7 +130,7 @@ const Reviews = () => {
                 className="relative z-10 flex max-w-3xl flex-col items-center gap-3 text-center sm:gap-4"
             >
                 <motion.h2 variants={fadeUp} className="heading">
-                    Thousands are already feeling the difference
+                    Thousands are already feeling the <span className='heading-highlight'>difference</span>
                 </motion.h2>
 
                 <motion.p variants={fadeUp} className="sub-heading">

@@ -119,7 +119,7 @@ const HowItWorks = () => {
                     whileInView="show"
                     viewport={{ once: true, amount: 0.5 }}
                     variants={staggerGroup}
-                    className="mx-auto flex max-w-3xl flex-col items-center text-center"
+                    className="mx-auto flex max-w-7xl flex-col items-center text-center"
                 >
 
                     <motion.div variants={fadeUp} className="badge">
@@ -131,7 +131,7 @@ const HowItWorks = () => {
                     </motion.div>
 
                     <motion.h2 variants={fadeUp} className="heading mt-5 sm:mt-6">
-                        Simple, effective relief in just 60 seconds
+                        Simple, effective relief in just <span className="heading-highlight">60 seconds</span>
                     </motion.h2>
 
                     <motion.p variants={fadeUp} className="sub-heading mt-4 sm:mt-5">
@@ -241,16 +241,18 @@ const HowItWorks = () => {
                         {/* Product */}
                         <motion.div
                             style={{ x: tiltX, y: tiltY, rotateX, rotateY }}
-                            className="relative z-10 flex h-[240px] w-[240px] items-center justify-center sm:h-[320px] sm:w-[320px] lg:h-[380px] lg:w-[380px]"
+                            className="relative z-10 overflow-hidden flex h-[240px] w-[240px] items-center justify-center sm:h-[320px] sm:w-[320px] lg:h-[380px] lg:w-[380px]"
                         >
 
-                            <motion.img
-                                src="/images/meilid-device.png"
-                                alt="MEILID eyelid care device"
-                                whileHover={{ scale: 1.06 }}
-                                transition={{ duration: 0.4, ease }}
-                                className="w-[190px] object-contain drop-shadow-[0_35px_35px_rgba(20,25,80,0.20)] sm:w-[240px] lg:w-[290px]"
-                            />
+                            <div className='w-full h-full rounded-full overflow-hidden'>
+                                <motion.img
+                                    src="/images/how-it-works.png"
+                                    alt="MEILID eyelid care device"
+                                    whileHover={{ scale: 1.06 }}
+                                    transition={{ duration: 0.4, ease }}
+                                    className="w-full object-cover drop-shadow-[0_35px_35px_rgba(20,25,80,0.20)] "
+                                />
+                            </div>
 
                         </motion.div>
 

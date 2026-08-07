@@ -103,7 +103,7 @@ const WhyMEILID = () => {
                     </motion.div>
 
                     <motion.h2 variants={fadeUp} className="heading mt-5 sm:mt-6">
-                        Why drops and compresses aren&apos;t enough
+                        Why <span className="heading-highlight">drops and compresses </span> aren&apos;t enough
                     </motion.h2>
 
                     <motion.p variants={fadeUp} className="sub-heading mt-4 sm:mt-5">

@@ -3,6 +3,7 @@
 import React from 'react'
 import { motion, Transition, useReducedMotion, Variants } from 'framer-motion'
 import { FiCheck, FiArrowRight } from 'react-icons/fi'
+import Image from 'next/image'
 
 const benefits = [
     '60-Day Money-Back Guarantee',
@@ -189,7 +190,7 @@ const FinalCTA = () => {
 
                             <div className="absolute left-7 top-8 h-28 w-7 rounded-full bg-white/20 blur-md sm:left-8 sm:h-32 sm:w-8" />
 
-                            <motion.div
+                            {/* <motion.div
                                 className="absolute bottom-12 left-1/2 h-2 w-16 -translate-x-1/2 rounded-full bg-[#5EDBD0] sm:w-20"
                                 animate={prefersReducedMotion ? undefined : {
                                     boxShadow: [
@@ -199,7 +200,7 @@ const FinalCTA = () => {
                                     ]
                                 }}
                                 transition={BREATHE}
-                            />
+                            /> */}
                         </div>
 
                         <motion.div
@@ -215,6 +216,7 @@ const FinalCTA = () => {
                         />
                     </motion.div>
 
+                    <Image src="/images/final-cta-section.png" width={400} height={400} alt="MEILID eyelid care device" className="w-full h-full object-cover absolute z-10 left-[6%]" />
                     {/* Product Label */}
                     <div className="absolute bottom-2 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-[11px] font-medium tracking-wide text-white/60 backdrop-blur-xl sm:bottom-5 sm:px-5 sm:py-2.5 sm:text-xs">
                         MEILID • Daily Eyelid Care
