@@ -165,8 +165,8 @@ const Header = () => {
                                     <Link
                                         href={link.href}
                                         className={`group relative py-2 text-sm font-medium transition-colors duration-300 ${activeLink === link.href
-                                                ? "text-[#11143F]"
-                                                : "text-[#11143F]/60 hover:text-[#11143F]"
+                                            ? "text-[#11143F]"
+                                            : "text-[#11143F]/60 hover:text-[#11143F]"
                                             }`}
                                     >
                                         {link.label}
@@ -187,7 +187,8 @@ const Header = () => {
                         {/* CTA */}
                         <motion.div variants={navItemVariants}>
                             <Link
-                                href="#shop"
+                                target='_blank'
+                                href="https://buy.stripe.com/aFa8wRgzWbVz1eRdy41kA00"
                                 className="group flex items-center gap-2 rounded-full bg-[#11143F] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_8px_25px_rgba(17,20,63,0.15)] transition-colors duration-300 hover:bg-[#2DB9AE] lg:px-5 lg:py-3"
                             >
                                 <motion.span
@@ -282,7 +283,8 @@ const Header = () => {
                                         animate="visible"
                                     >
                                         <Link
-                                            href="#shop"
+                                            target='_blank'
+                                            href="https://buy.stripe.com/aFa8wRgzWbVz1eRdy41kA00"
                                             onClick={() => setIsMenuOpen(false)}
                                             className="mt-2 flex items-center justify-center gap-2 rounded-full bg-[#11143F] px-5 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#2DB9AE]"
                                         >

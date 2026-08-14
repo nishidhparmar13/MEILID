@@ -276,9 +276,16 @@ const Hero = () => {
                                 ease,
                             }}
                             className="mt-9"
+                            onClick={() => {
+                                window.open(
+                                    "https://buy.stripe.com/aFa8wRgzWbVz1eRdy41kA00",
+                                    "_blank",
+                                    "noopener,noreferrer"
+                                );
+                            }}
                         >
                             <MagneticButton>
-                                Explore MEILID
+                                Shop MEILID
                             </MagneticButton>
                         </motion.div>
 
