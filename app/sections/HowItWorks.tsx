@@ -38,9 +38,9 @@ const steps = [
     {
         number: '03',
         icon: <FiRefreshCw />,
-        title: 'Rinse & refresh',
+        title: 'Rinse',
         description:
-            'Rinse your eyes and the device. Feel the difference immediately.',
+            'Rinse the eye of any remaining lather or soap.',
     },
 ]
 
@@ -132,7 +132,7 @@ const HowItWorks = () => {
                     </motion.div>
 
                     <motion.h2 variants={fadeUp} className="heading mt-5 sm:mt-6">
-                        Simple, effective relief in just <span className="heading-highlight">60 seconds</span>
+                        Simple, effective relief in just <span className="heading-highlight">20 seconds</span>
                     </motion.h2>
 
                     <motion.p variants={fadeUp} className="sub-heading mt-4 sm:mt-5">
@@ -155,7 +155,7 @@ const HowItWorks = () => {
                         className="space-y-4 sm:space-y-5"
                     >
 
-                        {steps.slice(0, 2).map((step) => (
+                        {steps.map((step) => (
 
                             <motion.div
                                 key={step.number}
@@ -258,7 +258,7 @@ const HowItWorks = () => {
                         </motion.div>
 
 
-                        {/* 60 Second Badge */}
+                        {/* 20 Second Badge */}
                         <motion.div
                             initial={{ opacity: 0, x: 20, y: -10 }}
                             whileInView={{ opacity: 1, x: 0, y: 0 }}
@@ -272,7 +272,7 @@ const HowItWorks = () => {
                                 className="flex items-center gap-2.5 rounded-2xl border border-white/80 bg-white/90 px-3 py-2.5 shadow-xl shadow-primary/10 backdrop-blur-md sm:gap-3 sm:px-4 sm:py-3"
                             >
                                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#3DC5B8] text-xs font-bold text-white sm:h-11 sm:w-11 sm:text-sm">
-                                    60s
+                                    20s
                                 </div>
 
                                 <div>
@@ -324,7 +324,7 @@ const HowItWorks = () => {
                         className="flex flex-col gap-5 sm:gap-6"
                     >
 
-                        <motion.div
+                        {/* <motion.div
                             variants={stepCard}
                             whileHover={{ y: -4 }}
                             transition={{ duration: 0.3, ease }}
@@ -363,7 +363,7 @@ const HowItWorks = () => {
 
                             </div>
 
-                        </motion.div>
+                        </motion.div> */}
 
 
                         {/* Routine Card */}

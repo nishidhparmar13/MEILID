@@ -23,7 +23,7 @@ const reviews = [
         age: 52,
         rotate: 0,
         review:
-            "As a daily contacts wearer, I used to wake up with crusty lashes and red eyes. MEILID takes 60 seconds and has completely eliminated that morning discomfort.",
+            "As a daily contacts wearer, I used to wake up with crusty lashes and red eyes. MEILID takes 20 seconds and has completely eliminated that morning discomfort.",
     },
     {
         initials: 'JL',

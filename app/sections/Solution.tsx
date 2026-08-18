@@ -23,7 +23,7 @@ const features = [
         number: '01',
         title: 'Targets the root cause',
         description:
-            'Removes the buildup that drives inflammation — not just the symptoms.',
+            'Effectively and safely interacts with lid margins and lashes where debris builds and inflammation can begin.',
         accent: 'bg-[#E4F8F5] text-[#27BDB2]',
     },
     {
@@ -45,8 +45,8 @@ const features = [
 ]
 
 const stats = [
-    { value: '20+', label: 'Years of clinical research', color: '#292C82' },
-    { value: '60 sec', label: 'Simple daily routine', color: '#27BDB2' },
+    { value: '20+', label: 'Years of clinical experience', color: '#292C82' },
+    { value: '20 sec', label: 'Simple daily routine', color: '#27BDB2' },
     { value: '2×', label: 'Daily use when needed', color: '#E88B4A' },
 ]
 
@@ -177,9 +177,7 @@ const Solution = () => {
                     </motion.h2>
 
                     <motion.p variants={fadeUp} className="sub-heading mt-4 max-w-2xl sm:mt-5">
-                        MEILID combines 20+ years of clinical research with gentle,
-                        effective design to give you what drops can&apos;t — true,
-                        lasting relief.
+                        MEILID combines 20+ years of clinical experience with gentle, effective design to assist with better ocular comfort.
                     </motion.p>
 
                 </motion.div>
