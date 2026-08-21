@@ -21,17 +21,17 @@ const features = [
     {
         icon: PiTarget,
         number: '01',
-        title: 'Targets the root cause',
+        title: 'Cleanses the lid margin',
         description:
-            'Effectively and safely interacts with lid margins and lashes where debris builds and inflammation can begin.',
+            'Gently and safely reaches lid margins and lashes where debris and buildup can collect.',
         accent: 'bg-[#E4F8F5] text-[#27BDB2]',
     },
     {
         icon: FiDroplet,
         number: '02',
-        title: 'Restores natural moisture',
+        title: 'Supports a comfortable routine',
         description:
-            'Supports healthy oil gland function for a balanced, comfortable tear film.',
+            'Designed as part of a daily eyelid hygiene routine for a clean, comfortable lid margin.',
         accent: 'bg-[#EAE9FF] text-[#5552C8]',
     },
     {
@@ -177,7 +177,7 @@ const Solution = () => {
                     </motion.h2>
 
                     <motion.p variants={fadeUp} className="sub-heading mt-4 max-w-2xl sm:mt-5">
-                        MEILID combines 20+ years of clinical experience with gentle, effective design to assist with better ocular comfort.
+                        MEILID combines 20+ years of optometric hygiene principles with gentle, effective design for daily eyelid care.
                     </motion.p>
 
                 </motion.div>
@@ -315,7 +315,7 @@ const Solution = () => {
                                 variants={fadeUp}
                                 className="mt-3 max-w-xl text-2xl font-bold leading-tight tracking-[-0.02em] text-[#171A4B] sm:text-3xl sm:tracking-[-0.03em] md:text-4xl"
                             >
-                                More than relief.
+                                More than a quick fix.
                                 <br />
                                 A better approach to eyelid care.
                             </motion.h3>

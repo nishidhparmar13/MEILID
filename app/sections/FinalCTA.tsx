@@ -85,8 +85,8 @@ const FinalCTA = () => {
                         variants={fadeUp}
                         className="max-w-3xl text-[2.25rem] font-bold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl lg:leading-[1.05]"
                     >
-                        Ready to{' '}
-                        <span className="text-[#5EDBD0]">finally feel relief?</span>
+                        Ready for a{' '}
+                        <span className="text-[#5EDBD0]">better eyelid care routine?</span>
                     </motion.h2>
 
                     {/* Description */}

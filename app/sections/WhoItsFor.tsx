@@ -40,7 +40,7 @@ const audiences: Audience[] = [
         number: '01',
         title: 'Chronic eye irritation',
         description:
-            'Get to the root of blepharitis, MGD, and inflammation.',
+            'Supports a clean, comfortable lid margin as part of your daily routine.',
         bg: '#F8FAFA',
         circleA: '#DDF7F3',
         circleB: '#BDECE5',
@@ -343,7 +343,7 @@ const WhoItsFor = () => {
                 className="flex max-w-4xl flex-col items-center gap-4 text-center"
             >
                 <motion.h2 variants={fadeUp} className="heading">
-                    Not just for dry eyes your <span className="heading-highlight">all-in-one</span> eyelid care solution
+                    Not just for irritated eyes your <span className="heading-highlight">all-in-one</span> eyelid care solution
                 </motion.h2>
             </motion.div>
 

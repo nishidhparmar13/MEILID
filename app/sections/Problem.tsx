@@ -222,9 +222,9 @@ const Problem = () => {
 
                         Chronic irritation is often connected to
                         <span className="mx-1.5 font-medium text-[#2DB9AE] sm:mx-2">
-                            eyelid inflammation
+                            buildup along the lash line
                         </span>
-                        that disrupts your natural tear film.
+                        that goes unaddressed day after day.
                     </p>
 
                 </motion.div>

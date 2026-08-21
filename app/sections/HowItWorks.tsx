@@ -132,7 +132,7 @@ const HowItWorks = () => {
                     </motion.div>
 
                     <motion.h2 variants={fadeUp} className="heading mt-5 sm:mt-6">
-                        Simple, effective relief in just <span className="heading-highlight">20 seconds</span>
+                        A simple daily routine in just <span className="heading-highlight">20 seconds</span>
                     </motion.h2>
 
                     <motion.p variants={fadeUp} className="sub-heading mt-4 sm:mt-5">
