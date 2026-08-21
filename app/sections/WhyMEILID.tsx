@@ -9,12 +9,12 @@ const ease: Easing = [0.16, 1, 0.3, 1]
 
 const comparison = [
     {
-        traditional: 'Masks symptoms temporarily',
-        meilid: 'Targets the root cause',
+        traditional: 'Offers only short-term convenience',
+        meilid: 'Built for daily lid margin hygiene',
     },
     {
         traditional: 'Requires constant reapplication',
-        meilid: 'Designed for lasting relief',
+        meilid: 'Designed for a comfortable daily routine',
     },
     {
         traditional: 'Messy and time-consuming',
@@ -103,12 +103,12 @@ const WhyMEILID = () => {
                     </motion.div>
 
                     <motion.h2 variants={fadeUp} className="heading mt-5 sm:mt-6">
-                        Why <span className="heading-highlight">drops and compresses </span> aren&apos;t enough
+                        A <span className="heading-highlight">different approach </span> to eyelid care
                     </motion.h2>
 
                     <motion.p variants={fadeUp} className="sub-heading mt-4 sm:mt-5">
-                        Most treatments focus on temporary relief. MEILID takes a
-                        different approach — addressing the root of your eyelid care routine.
+                        Most methods focus on quick fixes. MEILID takes a
+                        different approach — supporting a simple, consistent daily eyelid hygiene routine.
                     </motion.p>
 
                 </motion.div>
@@ -160,7 +160,7 @@ const WhyMEILID = () => {
                                 </h3>
 
                                 <p className="mt-2 text-sm leading-6 text-neutral-500">
-                                    Often focused on managing symptoms when they appear.
+                                    Often messy, inconsistent, or hard to stick with.
                                 </p>
 
                             </div>

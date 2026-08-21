@@ -15,7 +15,7 @@ const reviews = [
         age: 34,
         rotate: -1,
         review:
-            "I've struggled with dry, irritated eyes for years. Drops, compresses, prescriptions — nothing worked long-term. MEILID changed everything. Within a week, my eyes felt clearer than they have in a decade.",
+            "I've dealt with irritated eyelids for years. Drops and compresses always felt like a hassle. MEILID changed my routine completely — it's fast, simple, and easy to stick with.",
     },
     {
         initials: 'RT',
@@ -135,7 +135,7 @@ const Reviews = () => {
                 </motion.h2>
 
                 <motion.p variants={fadeUp} className="sub-heading">
-                    Real stories from people who finally found relief that lasts.
+                    Real stories from people who&apos;ve made MEILID part of their daily routine.
                 </motion.p>
             </motion.div>
 
@@ -196,7 +196,7 @@ const Reviews = () => {
                             &quot;MEILID is the most effective at-home eyelid
                             hygiene tool I&apos;ve seen in my 15 years of
                             practice. I recommend it to nearly every patient
-                            dealing with chronic dry eye or blepharitis.&quot;
+                            looking for a simple, consistent lid hygiene routine.&quot;
                         </blockquote>
 
                         <motion.div
@@ -312,7 +312,7 @@ const Reviews = () => {
                 whileTap={{ scale: 0.97 }}
                 className="group relative z-10 mt-8 flex items-center gap-3 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-white shadow-[0_12px_25px_rgba(45,48,140,0.22)] transition-shadow duration-300 hover:shadow-[0_18px_35px_rgba(45,48,140,0.30)] sm:px-8 sm:py-4 sm:text-base"
             >
-                Join Thousands Finding Relief
+                Join Thousands of MEILID Users
 
                 <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
             </motion.button>
