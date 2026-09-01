@@ -228,11 +228,11 @@ const Hero = () => {
                             }}
                             className="mt-8 max-w-3xl text-[clamp(3.8rem,6.5vw,7rem)] font-light leading-[0.9] tracking-[-0.06em] text-[#11143F]"
                         >
-                            Gentle cleaning.
+                            Better hygiene.
                             <br />
 
                             <span className="font-medium text-[#2DB9AE]">
-                                Better eyelid health.
+                                Better health.
                             </span>
                         </motion.h1>
 

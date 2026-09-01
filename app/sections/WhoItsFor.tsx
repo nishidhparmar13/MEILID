@@ -71,18 +71,18 @@ const audiences: Audience[] = [
         iconColor: '#5797E8',
         iconTransform: { x: 8 },
     },
-    {
-        Icon: FiActivity,
-        number: '04',
-        title: 'Post-procedure care',
-        description:
-            'Ideal after LASIK, cataract surgery, or other eye procedures.',
-        bg: '#F8FAFA',
-        circleA: '#FFF1DC',
-        circleB: '#FFE2B5',
-        iconColor: '#E89A3D',
-        iconTransform: { scale: 1.1 },
-    },
+    // {
+    //     Icon: FiActivity,
+    //     number: '04',
+    //     title: 'Post-procedure care',
+    //     description:
+    //         'Ideal after LASIK, cataract surgery, or other eye procedures.',
+    //     bg: '#F8FAFA',
+    //     circleA: '#FFF1DC',
+    //     circleB: '#FFE2B5',
+    //     iconColor: '#E89A3D',
+    //     iconTransform: { scale: 1.1 },
+    // },
 ]
 
 const staggerGroup: Variants = {
@@ -343,7 +343,7 @@ const WhoItsFor = () => {
                 className="flex max-w-4xl flex-col items-center gap-4 text-center"
             >
                 <motion.h2 variants={fadeUp} className="heading">
-                    Not just for irritated eyes your <span className="heading-highlight">all-in-one</span> eyelid care solution
+                    With better hygiene comes <span className="heading-highlight">better comfort for all</span>
                 </motion.h2>
             </motion.div>
 
@@ -353,7 +353,7 @@ const WhoItsFor = () => {
                 whileInView="show"
                 viewport={{ once: true, amount: 0.15 }}
                 variants={cardGrid}
-                className="mt-8 grid w-full max-w-7xl grid-cols-1 gap-5 sm:mt-10 sm:grid-cols-2 lg:grid-cols-4"
+                className="mt-8 grid w-full max-w-7xl grid-cols-1 gap-5 sm:mt-10 sm:grid-cols-2 lg:grid-cols-3"
                 style={{ perspective: 1200 }}
             >
                 {audiences.map((item) => (
