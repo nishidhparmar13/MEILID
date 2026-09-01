@@ -26,14 +26,14 @@ const steps = [
         icon: <FiDroplet />,
         title: 'Wet & lather',
         description:
-            'Wet MEILID and add a gentle cleanser — or use it as-is with warm water.',
+            'Wet MEILID and add a gentle cleanser/soap for best hygiene. However, it can be used with warm to hot water alone.',
     },
     {
         number: '02',
         icon: <FiEye />,
         title: 'Cleanse',
         description:
-            'Glide along your lash line in small circles. The soft bristles lift away buildup without irritation.',
+            'With your eyes closed firmly glide along your lash line in small circles. The soft bristles lift away buildup without irritation.',
     },
     {
         number: '03',

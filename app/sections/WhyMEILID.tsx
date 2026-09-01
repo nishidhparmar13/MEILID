@@ -14,19 +14,19 @@ const comparison = [
     },
     {
         traditional: 'Requires constant reapplication',
-        meilid: 'Designed for a comfortable daily routine',
+        meilid: '200+ gentle cleaning bristles for the lids and lashes',
     },
     {
         traditional: 'Messy and time-consuming',
-        meilid: 'Simple 60-second routine',
+        meilid: 'Simple 20-second routine',
     },
     {
         traditional: 'Creates single-use waste',
-        meilid: 'Reusable by design',
+        meilid: 'Reusable so there is less waste compared to eyelid wipest',
     },
     {
         traditional: 'Costs add up over time',
-        meilid: 'One-time investment',
+        meilid: 'Better value when compared to wipes that need to be purchased over and over again',
     },
 ]
 
@@ -235,8 +235,7 @@ const WhyMEILID = () => {
                                 </h3>
 
                                 <p className="mt-2 text-sm leading-6 text-white/60">
-                                    Designed to make effective eyelid care simple,
-                                    gentle, and consistent.
+                                    Designed to make eyelid care simple. gentle and effective.
                                 </p>
 
                             </div>

@@ -147,7 +147,7 @@ const Sustainability = () => {
                             className="rounded-2xl border border-white bg-white px-5 py-5 text-left shadow-[0_10px_30px_rgba(35,39,100,0.05)] sm:px-6 sm:py-6"
                         >
                             <p className="text-2xl font-bold tracking-tight text-[#2DB9AE] sm:text-3xl md:text-4xl">
-                                <AnimatedStat value="12+" delay={0.55} /> mo
+                                <AnimatedStat value="6" delay={0.55} /> mo
                             </p>
 
                             <p className="mt-2 max-w-[140px] text-sm leading-6 text-neutral-500">
@@ -200,37 +200,34 @@ const Sustainability = () => {
                         <motion.div
                             whileHover={{ scale: 1.03 }}
                             transition={{ duration: 0.4, ease }}
-                            className="relative z-10 flex aspect-square w-[72%] flex-col items-center justify-center overflow-hidden rounded-full bg-white text-center shadow-[0_25px_70px_rgba(35,39,100,0.10)]"
+                            className="relative z-10 flex aspect-square w-[72%] flex-col items-center justify-center overflow-hidden rounded-full bg-gradient-to-b from-white to-[#F6FDFC] text-center shadow-[0_25px_70px_rgba(35,39,100,0.10)] ring-1 ring-[#DDF5F1]"
                         >
 
                             {/* Soft Glow */}
                             <motion.div
-                                animate={{ opacity: [0.6, 1, 0.6] }}
+                                animate={{ opacity: [0.5, 0.9, 0.5] }}
                                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                                className="absolute -top-16 h-36 w-36 rounded-full bg-[#EAF8F6] sm:-top-20 sm:h-48 sm:w-48"
+                                className="absolute -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-[#EAF8F6] to-[#D6F3EE] blur-[2px] sm:-top-20 sm:h-48 sm:w-48"
                             />
 
                             {/* Icon */}
                             <motion.div
                                 whileHover={{ rotate: 10, scale: 1.08 }}
                                 transition={{ type: 'spring', stiffness: 350, damping: 15 }}
-                                className="relative mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#EAF8F6] text-2xl text-[#2DB9AE] sm:mb-5 sm:h-16 sm:w-16 sm:text-3xl"
+                                className="relative mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#2DB9AE] to-[#22A79C] text-2xl text-white shadow-[0_10px_25px_rgba(45,185,174,0.35)] sm:mb-6 sm:h-[4.5rem] sm:w-[4.5rem] sm:text-3xl"
                             >
                                 <LuLeafyGreen />
                             </motion.div>
 
-                            <p className="relative text-4xl font-bold tracking-tight text-primary sm:text-5xl md:text-6xl lg:text-7xl">
-                                <AnimatedStat value="700+" delay={0.6} />
+                            <p className="relative max-w-[190px] text-[15px] font-semibold leading-tight text-[#1B4B47] sm:max-w-[220px] sm:text-lg">
+                                Less waste.
+                                <br />
+                                More care.
                             </p>
 
-                            <p className="relative mt-2 max-w-[220px] text-xs leading-6 text-neutral-500 sm:mt-3 sm:text-sm">
-                                disposable eye wipes replaced
-                                every year
-                            </p>
-
-                            <div className="relative mt-4 flex items-center gap-2 text-xs font-semibold text-[#2DB9AE] sm:mt-5 sm:text-sm">
-                                <LuRecycle />
-                                Less waste. More care.
+                            <div className="relative mt-4 flex items-center gap-1.5 rounded-full bg-[#EAF8F6] px-3.5 py-1.5 text-xs font-medium text-[#238F86] sm:mt-5 sm:text-sm">
+                                <LuRecycle className="text-sm sm:text-base" />
+                                100% reusable
                             </div>
 
                         </motion.div>
