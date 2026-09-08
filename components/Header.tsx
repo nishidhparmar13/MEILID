@@ -131,7 +131,7 @@ const Header = () => {
 
                     {/* Logo */}
                     <Link
-                        href="/"
+                        href="/#hero"
                         className="group relative flex shrink-0 items-center"
                     >
                         <motion.div

@@ -151,6 +151,7 @@ const Hero = () => {
 
     return (
         <section
+            id="hero"
             onMouseMove={handlePointerMove}
             className="relative min-h-dvh w-full overflow-hidden bg-[#F7F8F5]"
         >

@@ -9,6 +9,7 @@ import {
     FiEye,
     FiSun,
 } from 'react-icons/fi'
+import Link from 'next/link'
 
 const ease: Easing = [0.16, 1, 0.3, 1]
 
@@ -252,17 +253,18 @@ const Problem = () => {
                         simply live with it.
                     </p>
 
-                    <motion.div
-                        whileHover={{ scale: 1.1, borderColor: 'rgba(45,185,174,0.5)' }}
-                        animate={{ y: [0, 6, 0] }}
-                        transition={{
-                            y: { duration: 1.8, repeat: Infinity, ease: 'easeInOut' },
-                            scale: { duration: 0.2 },
-                        }}
-                        className="mt-6 flex h-10 w-10 items-center justify-center rounded-full border border-[#2DB9AE]/20 text-[#2DB9AE] sm:mt-7 sm:h-11 sm:w-11"
-                    >
-                        <FiArrowDown size={16} />
-                    </motion.div>
+                    <Link href="#solution">
+                        <motion.div
+                            whileHover={{ scale: 1.1, borderColor: 'rgba(45,185,174,0.5)' }}
+                            animate={{ y: [0, 6, 0] }}
+                            transition={{
+                                y: { duration: 1.8, repeat: Infinity, ease: 'easeInOut' },
+                                scale: { duration: 0.2 },
+                            }}
+                            className="mt-6 flex h-10 w-10 items-center justify-center rounded-full border border-[#2DB9AE]/20 text-[#2DB9AE] sm:mt-7 sm:h-11 sm:w-11"
+                        >
+                            <FiArrowDown size={16} />
+                        </motion.div></Link>
 
                 </motion.div>
 
