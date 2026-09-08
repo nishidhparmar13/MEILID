@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { AnimatePresence, Easing, motion, Variants } from 'framer-motion'
 import { FiMinus, FiPlus } from 'react-icons/fi'
+import { useContactDialog } from '@/components/contact/ContactDialogContext'
 
 const ease: Easing = [0.16, 1, 0.3, 1]
 
@@ -56,6 +57,7 @@ const itemVariants: Variants = {
 
 const FAQ = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(0)
+    const { open: openContactDialog } = useContactDialog()
 
     const toggleFAQ = (index: number) => {
         setOpenIndex((current) => (current === index ? null : index))
@@ -251,6 +253,7 @@ const FAQ = () => {
                 <motion.button
                     whileHover={{ y: -1 }}
                     type="button"
+                    onClick={openContactDialog}
                     className="font-semibold text-[#2DB9AE] transition-colors hover:text-[#239B92]"
                 >
                     Contact us

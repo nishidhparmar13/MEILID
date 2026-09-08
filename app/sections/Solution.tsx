@@ -14,6 +14,7 @@ import { FiDroplet, FiArrowUpRight } from 'react-icons/fi'
 import { LiaEyeSolid } from 'react-icons/lia'
 import { PiTarget } from 'react-icons/pi'
 import { HiOutlineSparkles } from 'react-icons/hi2'
+import Link from 'next/link'
 
 const ease: Easing = [0.16, 1, 0.3, 1]
 
@@ -138,6 +139,7 @@ const Solution = () => {
 
     return (
         <section
+            id="solution"
             ref={sectionRef}
             className="relative w-full overflow-hidden bg-[#F7F8FC] py-20 sm:py-24 md:py-32"
         >
@@ -394,21 +396,22 @@ const Solution = () => {
                             className="mt-7 flex flex-wrap items-center gap-3 sm:mt-8 sm:gap-4"
                         >
 
-                            <motion.button
-                                whileHover={{ scale: 1.03 }}
-                                whileTap={{ scale: 0.97 }}
-                                className="group flex items-center gap-3 rounded-full bg-[#292C82] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#292C82]/20 transition-colors hover:bg-[#202366] sm:px-6 sm:py-3.5"
-                            >
-                                Discover how it works
-
-                                <motion.span
-                                    className="flex"
-                                    transition={{ duration: 0.3 }}
+                            <Link href="#how-it-works">
+                                <motion.button
+                                    whileHover={{ scale: 1.03 }}
+                                    whileTap={{ scale: 0.97 }}
+                                    className="group flex items-center gap-3 rounded-full bg-[#292C82] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#292C82]/20 transition-colors hover:bg-[#202366] sm:px-6 sm:py-3.5"
                                 >
-                                    <FiArrowUpRight className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                                </motion.span>
+                                    Discover how it works
 
-                            </motion.button>
+                                    <motion.span
+                                        className="flex"
+                                        transition={{ duration: 0.3 }}
+                                    >
+                                        <FiArrowUpRight className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                                    </motion.span>
+
+                                </motion.button></Link>
 
                             <div className="flex items-center gap-2 text-xs text-[#747993] sm:text-sm">
 

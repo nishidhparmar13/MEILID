@@ -123,6 +123,13 @@ const FinalCTA = () => {
                         className="mt-10 flex flex-col items-center gap-4 sm:mt-11 sm:flex-row sm:items-center"
                     >
                         <motion.button
+                            onClick={() => {
+                                window.open(
+                                    "https://buy.stripe.com/aFa8wRgzWbVz1eRdy41kA00",
+                                    "_blank",
+                                    "noopener,noreferrer"
+                                );
+                            }}
                             type="button"
                             whileHover={{ y: -4, boxShadow: '0 24px 70px rgba(61,197,184,0.4)' }}
                             whileTap={{ scale: 0.97, y: -1 }}

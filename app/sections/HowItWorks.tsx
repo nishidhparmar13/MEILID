@@ -415,6 +415,13 @@ const HowItWorks = () => {
                 >
 
                     <motion.button
+                        onClick={() => {
+                            window.open(
+                                "https://buy.stripe.com/aFa8wRgzWbVz1eRdy41kA00",
+                                "_blank",
+                                "noopener,noreferrer"
+                            );
+                        }}
                         whileHover={{ scale: 1.04, y: -2 }}
                         whileTap={{ scale: 0.97 }}
                         transition={{ type: 'spring', stiffness: 300, damping: 18 }}

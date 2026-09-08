@@ -4,6 +4,7 @@ import React, { useRef } from 'react'
 import { Easing, motion, useScroll, useTransform } from 'framer-motion'
 import { FiCheck, FiX, FiArrowRight } from 'react-icons/fi'
 import { HiOutlineSparkles } from 'react-icons/hi2'
+import Link from 'next/link'
 
 const ease: Easing = [0.16, 1, 0.3, 1]
 
@@ -315,19 +316,21 @@ const WhyMEILID = () => {
                     </div>
 
 
-                    <motion.button
-                        whileHover={{ scale: 1.04, y: -2 }}
-                        whileTap={{ scale: 0.97 }}
-                        transition={{ type: 'spring', stiffness: 300, damping: 18 }}
-                        className="group flex w-full shrink-0 items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-white transition-shadow duration-300 hover:shadow-lg md:w-auto"
-                    >
+                    <Link href="#how-it-works" className="w-full md:w-auto">
+                        <motion.button
+                            whileHover={{ scale: 1.04, y: -2 }}
+                            whileTap={{ scale: 0.97 }}
+                            transition={{ type: 'spring', stiffness: 300, damping: 18 }}
+                            className="group flex w-full shrink-0 items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-white transition-shadow duration-300 hover:shadow-lg md:w-auto"
+                        >
 
-                        See How It Works
+                            See How It Works
 
-                        <FiArrowRight className="transition-transform group-hover:translate-x-1" />
+                            <FiArrowRight className="transition-transform group-hover:translate-x-1" />
 
-                    </motion.button>
+                        </motion.button>
 
+                    </Link>
                 </motion.div>
 
             </div>

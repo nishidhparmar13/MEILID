@@ -304,6 +304,13 @@ const Reviews = () => {
 
             {/* CTA */}
             <motion.button
+                onClick={() => {
+                    window.open(
+                        "https://buy.stripe.com/aFa8wRgzWbVz1eRdy41kA00",
+                        "_blank",
+                        "noopener,noreferrer"
+                    );
+                }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

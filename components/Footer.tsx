@@ -9,6 +9,8 @@ import {
     FiTwitter,
     FiMail,
 } from 'react-icons/fi'
+import { FaTiktok } from 'react-icons/fa'
+import { useContactDialog } from './contact/ContactDialogContext'
 
 const ease: Easing = [0.16, 1, 0.3, 1]
 
@@ -35,28 +37,37 @@ interface FooterLinkItem {
 }
 
 const productLinks: FooterLinkItem[] = [
-    { href: '#how-it-works', label: 'How It Works' },
-    { href: '#reviews', label: 'Reviews' },
-    { href: '#faq', label: 'FAQ' },
-    { href: '#shop', label: 'Shop', arrow: true },
+    { href: '/#how-it-works', label: 'How It Works' },
+    { href: '/#reviews', label: 'Reviews' },
+    { href: '/#faq', label: 'FAQ' },
+    { href: 'https://buy.stripe.com/aFa8wRgzWbVz1eRdy41kA00', label: 'Shop', arrow: true },
 ]
 
 const supportLinks: FooterLinkItem[] = [
-    { href: '#contact', label: 'Contact' },
-    { href: '#shipping', label: 'Shipping' },
-    { href: '#returns', label: 'Returns' },
-    { href: '#warranty', label: 'Warranty' },
+    { href: '/policies/shipping', label: 'Shipping' },
+    { href: '/policies/returns', label: 'Returns' },
+    { href: '/policies/warranty', label: 'Warranty' },
 ]
 
 interface SocialItem {
     label: string
+    href: string
     icon: ReactNode
 }
 
 const socials: SocialItem[] = [
-    { label: 'Instagram', icon: <FiInstagram /> },
-    { label: 'Facebook', icon: <FiFacebook /> },
-    { label: 'Twitter', icon: <FiTwitter /> },
+    { label: 'Instagram', href: '#', icon: <FiInstagram /> },
+    {
+        label: 'Facebook',
+        href: 'https://www.facebook.com/share/14pfZErfwPw/?mibextid=wwXIfr',
+        icon: <FiFacebook />,
+    },
+    { label: 'Twitter', href: '#', icon: <FiTwitter /> },
+    {
+        label: 'TikTok',
+        href: 'https://www.tiktok.com/@meilidbrush?_r=1&_t=ZP-99NXCT4tlzq',
+        icon: <FaTiktok />,
+    },
 ]
 
 interface FooterLinkProps {
@@ -75,8 +86,21 @@ const FooterLink = ({ href, children }: FooterLinkProps) => (
     </motion.a>
 )
 
+const FooterButton = ({ onClick, children }: { onClick: () => void; children: ReactNode }) => (
+    <motion.button
+        type="button"
+        onClick={onClick}
+        whileHover={{ x: 3 }}
+        transition={{ duration: 0.2, ease: 'easeOut' }}
+        className="flex w-fit items-center gap-1 text-sm text-white/60 transition-colors hover:text-[#5EDBD0]"
+    >
+        {children}
+    </motion.button>
+)
+
 const Footer = () => {
     const prefersReducedMotion = useReducedMotion() ?? false
+    const { open: openContactDialog } = useContactDialog()
 
     return (
         <footer className="relative w-full overflow-hidden bg-[#11143F] px-5 pb-7 pt-12 text-white sm:px-8 sm:pt-14 md:px-10 lg:px-16">
@@ -182,7 +206,9 @@ const Footer = () => {
                             {socials.map((social) => (
                                 <motion.a
                                     key={social.label}
-                                    href="#"
+                                    href={social.href}
+                                    target={social.href.startsWith('http') ? '_blank' : undefined}
+                                    rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                                     aria-label={social.label}
                                     whileHover={{ y: -3 }}
                                     whileTap={{ scale: 0.92 }}
@@ -221,6 +247,8 @@ const Footer = () => {
                         </h3>
 
                         <nav className="mt-5 flex flex-col items-center gap-3 sm:items-start">
+                            <FooterButton onClick={openContactDialog}>Contact</FooterButton>
+
                             {supportLinks.map((link) => (
                                 <FooterLink key={link.label} href={link.href}>
                                     {link.label}
@@ -242,12 +270,12 @@ const Footer = () => {
                         </p>
 
                         <motion.a
-                            href="mailto:hello@meilid.com"
+                            href="mailto:Revijunllc@gmail.com"
                             whileHover={{ x: 3 }}
                             transition={{ duration: 0.2, ease: 'easeOut' }}
                             className="group mt-5 inline-flex items-center gap-2 text-sm font-medium text-white transition-colors hover:text-[#5EDBD0]"
                         >
-                            hello@meilid.com
+                            Revijunllc@gmail.com
                             <FiArrowUpRight className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                         </motion.a>
                     </motion.div>
@@ -265,15 +293,15 @@ const Footer = () => {
                     </p>
 
                     <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 md:justify-start">
-                        <a href="#privacy" className="transition-colors hover:text-white/70">
+                        <a href="/policies/privacy" className="transition-colors hover:text-white/70">
                             Privacy
                         </a>
 
-                        <a href="#terms" className="transition-colors hover:text-white/70">
+                        <a href="/policies/terms" className="transition-colors hover:text-white/70">
                             Terms
                         </a>
 
-                        <a href="#returns" className="transition-colors hover:text-white/70">
+                        <a href="/policies/returns" className="transition-colors hover:text-white/70">
                             Returns
                         </a>
 
