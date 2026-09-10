@@ -50,11 +50,11 @@ const PolicyNav = ({ current }: { current: string }) => {
                 </p>
 
                 <a
-                    href="mailto:Revijunllc@gmail.com"
+                    href="mailto:revijunllc@gmail.com"
                     className="group mt-1 inline-flex items-center gap-2 rounded-full bg-[#171A4B] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#171A4B]/20 transition-colors hover:bg-[#292C82]"
                 >
                     <FiMail />
-                    Revijunllc@gmail.com
+                    revijunllc@gmail.com
                     <FiArrowUpRight className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
             </div>
