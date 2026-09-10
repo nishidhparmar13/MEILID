@@ -2,11 +2,24 @@
 
 import { useEffect, useState, type FormEvent } from 'react'
 import { AnimatePresence, motion, type Easing, type Variants } from 'framer-motion'
-import { FiX, FiUser, FiPhone, FiMail, FiMessageSquare, FiArrowUpRight, FiSend } from 'react-icons/fi'
+import {
+    FiX,
+    FiUser,
+    FiPhone,
+    FiMail,
+    FiMessageSquare,
+    FiArrowUpRight,
+    FiCheck,
+    FiAlertTriangle,
+} from 'react-icons/fi'
 import { useContactDialog } from './ContactDialogContext'
 
 const ease: Easing = [0.16, 1, 0.3, 1]
-const CONTACT_EMAIL = 'Revijunllc@gmail.com'
+
+const SCRIPT_URL =
+    'https://script.google.com/macros/s/AKfycbz0JS1Gm1c7WpFPco-YhDoXec06ysQ9LNAImGAczFNQ_WRcaqyuj3HDxTKwfwE4RkWD/exec'
+
+type Status = 'idle' | 'sending' | 'success' | 'error'
 
 const container: Variants = {
     hidden: {},
@@ -34,7 +47,7 @@ const FieldShell = ({ icon: Icon, accent, children }: FieldProps) => (
 )
 
 const inputClasses =
-    'w-full bg-transparent text-sm text-[#171A4B] outline-none placeholder:text-neutral-600'
+    'w-full bg-transparent text-sm text-[#171A4B] outline-none placeholder:text-neutral-500'
 
 const ContactDialog = () => {
     const { isOpen, close } = useContactDialog()
@@ -43,7 +56,7 @@ const ContactDialog = () => {
     const [phone, setPhone] = useState('')
     const [email, setEmail] = useState('')
     const [comment, setComment] = useState('')
-    const [sent, setSent] = useState(false)
+    const [status, setStatus] = useState<Status>('idle')
 
     // Lock body scroll while open, close on Escape
     useEffect(() => {
@@ -61,41 +74,55 @@ const ContactDialog = () => {
         }
     }, [isOpen, close])
 
-    // Reset the "sent" flash whenever the dialog is reopened
+    // Reset status whenever the dialog is reopened
     useEffect(() => {
-        if (isOpen) setSent(false)
+        if (isOpen) setStatus('idle')
     }, [isOpen])
 
-    const resetAndClose = () => {
+    const resetFields = () => {
         setName('')
         setPhone('')
         setEmail('')
         setComment('')
-        close()
     }
 
-    const handleSubmit = (e: FormEvent) => {
+    const handleClose = () => {
+        close()
+        if (status !== 'sending') resetFields()
+    }
+
+    const handleSubmit = async (e: FormEvent) => {
         e.preventDefault()
+        if (status === 'sending' || status === 'success') return
 
-        const subject = `New contact from ${name || 'MEILID website'}`
-        const bodyLines = [
-            `Name: ${name}`,
-            `Phone: ${phone}`,
-            `Email: ${email}`,
-            '',
-            'Comment:',
-            comment,
-        ]
+        setStatus('sending')
 
-        const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-            subject
-        )}&body=${encodeURIComponent(bodyLines.join('\n'))}`
+        try {
+            const res = await fetch(SCRIPT_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'text/plain',
+                },
+                body: JSON.stringify({
+                    name,
+                    phone,
+                    email,
+                    message: comment,
+                }),
+            })
 
-        setSent(true)
-        window.setTimeout(() => {
-            window.location.href = mailto
-            resetAndClose()
-        }, 650)
+            const data = await res.json()
+
+            if (data.success) {
+                setStatus('success')
+                resetFields()
+            } else {
+                setStatus('error')
+            }
+        } catch (err) {
+            console.error('Failed to send contact form', err)
+            setStatus('error')
+        }
     }
 
     return (
@@ -107,7 +134,7 @@ const ContactDialog = () => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.25 }}
-                    onClick={resetAndClose}
+                    onClick={handleClose}
                     className="fixed inset-0 z-[200] flex items-center justify-center bg-[#080A24]/70 p-4 backdrop-blur-md"
                 >
                     <motion.div
@@ -143,7 +170,7 @@ const ContactDialog = () => {
                             {/* Close */}
                             <button
                                 type="button"
-                                onClick={resetAndClose}
+                                onClick={handleClose}
                                 aria-label="Close contact form"
                                 className="group absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/70 backdrop-blur-md transition-colors hover:bg-white/20 hover:text-white"
                             >
@@ -157,11 +184,11 @@ const ContactDialog = () => {
                                 className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#3DC5B8] to-[#27BDB2] text-2xl text-white shadow-[0_10px_30px_rgba(61,197,184,0.4)]"
                             >
                                 <FiMessageSquare />
-                                <motion.span
-                                    // animate={{ opacity: [0.6, 0, 0.6], scale: [1, 1.6, 1] }}
-                                    // transition={{ duration: 2.4, repeat: Infinity, ease: 'easeOut' }}
+                                {/* <motion.span
+                                    animate={{ opacity: [0.6, 0, 0.6], scale: [1, 1.6, 1] }}
+                                    transition={{ duration: 2.4, repeat: Infinity, ease: 'easeOut' }}
                                     className="absolute inset-0 rounded-2xl border-2 border-[#5EDBD0]"
-                                />
+                                /> */}
                             </motion.div>
 
                             <motion.p
@@ -180,7 +207,7 @@ const ContactDialog = () => {
                                 transition={{ duration: 0.5, delay: 0.2, ease }}
                                 className="mt-1 text-2xl font-bold tracking-tight text-white sm:text-[28px]"
                             >
-                                Let&rsquo;s talk
+                                {status === 'success' ? 'Message sent' : 'Let’s talk'}
                             </motion.h2>
 
                             <motion.p
@@ -189,109 +216,178 @@ const ContactDialog = () => {
                                 transition={{ duration: 0.5, delay: 0.25, ease }}
                                 className="mt-2 max-w-xs text-sm leading-6 text-white/50"
                             >
-                                Send a message and it&rsquo;ll open right in your email app,
-                                ready to go.
+                                {status === 'success'
+                                    ? 'Thanks for reaching out.'
+                                    : 'Send a message and it’ll land straight in our inbox.'}
                             </motion.p>
                         </div>
 
-                        {/* Form */}
-                        <motion.form
-                            initial="hidden"
-                            animate="show"
-                            variants={container}
-                            onSubmit={handleSubmit}
-                            className="relative flex flex-col gap-3.5 px-6 pb-7 pt-6 sm:px-8"
-                        >
-                            <FieldShell icon={FiUser} accent="bg-[#E4F8F5] text-[#27BDB2]">
-                                <input
-                                    type="text"
-                                    required
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                    placeholder="Your name"
-                                    className={inputClasses}
-                                />
-                            </FieldShell>
-
-                            <FieldShell icon={FiPhone} accent="bg-[#EAE9FF] text-[#5552C8]">
-                                <input
-                                    type="tel"
-                                    value={phone}
-                                    onChange={(e) => setPhone(e.target.value)}
-                                    placeholder="Phone number"
-                                    className={inputClasses}
-                                />
-                            </FieldShell>
-
-                            <FieldShell icon={FiMail} accent="bg-[#FFF2E7] text-[#E88B4A]">
-                                <input
-                                    type="email"
-                                    required
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    placeholder="Email address"
-                                    className={inputClasses}
-                                />
-                            </FieldShell>
-
-                            <motion.div
-                                variants={fieldUp}
-                                className="group relative flex items-start gap-3 rounded-2xl border border-[#E9EAF2] bg-white px-4 py-3 transition-all duration-300 focus-within:border-transparent focus-within:shadow-[0_0_0_2px_#3DC5B8,0_8px_24px_rgba(61,197,184,0.18)]"
-                            >
-                                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#FDEAF3] text-sm text-[#C24E86] transition-transform duration-300 group-focus-within:scale-110">
-                                    <FiMessageSquare />
-                                </span>
-                                <textarea
-                                    required
-                                    value={comment}
-                                    onChange={(e) => setComment(e.target.value)}
-                                    placeholder="How can we help?"
-                                    rows={4}
-                                    className={`${inputClasses} resize-none pt-1.5`}
-                                />
-                            </motion.div>
-
-                            <motion.button
-                                variants={fieldUp}
-                                type="submit"
-                                disabled={sent}
-                                whileHover={sent ? undefined : { y: -2 }}
-                                whileTap={sent ? undefined : { scale: 0.97 }}
-                                transition={{ duration: 0.2, ease: 'easeOut' }}
-                                className="group relative mt-2 flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-[#171A4B] to-[#292C82] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_15px_35px_rgba(23,26,75,0.35)] transition-opacity disabled:opacity-80"
-                            >
-                                {/* Shine sweep */}
-                                <span className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/3 -skew-x-12 bg-white/20 opacity-0 transition-all duration-700 group-hover:left-[120%] group-hover:opacity-100" />
-
-                                <AnimatePresence mode="wait" initial={false}>
-                                    {sent ? (
+                        <AnimatePresence mode="wait" initial={false}>
+                            {status === 'success' ? (
+                                /* ================= SUCCESS ================= */
+                                <motion.div
+                                    key="success"
+                                    initial={{ opacity: 0, y: 12 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -12 }}
+                                    transition={{ duration: 0.35, ease }}
+                                    className="relative flex flex-col items-center px-6 pb-8 pt-7 text-center sm:px-8"
+                                >
+                                    <motion.div
+                                        initial={{ scale: 0.5, opacity: 0 }}
+                                        animate={{ scale: 1, opacity: 1 }}
+                                        transition={{ duration: 0.5, ease: [0.34, 1.56, 0.64, 1], delay: 0.05 }}
+                                        className="relative flex h-16 w-16 items-center justify-center rounded-full bg-[#E4F8F5] text-3xl text-[#27BDB2]"
+                                    >
+                                        <FiCheck />
                                         <motion.span
-                                            key="sent"
-                                            initial={{ opacity: 0, y: 6 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0, y: -6 }}
-                                            transition={{ duration: 0.2 }}
-                                            className="flex items-center gap-2"
+                                            animate={{ opacity: [0.5, 0, 0.5], scale: [1, 1.5, 1] }}
+                                            transition={{ duration: 2.2, repeat: Infinity, ease: 'easeOut' }}
+                                            className="absolute inset-0 rounded-full border-2 border-[#27BDB2]"
+                                        />
+                                    </motion.div>
+
+                                    <h3 className="mt-5 text-xl font-bold text-[#171A4B]">
+                                        Thank you for contacting us!
+                                    </h3>
+
+                                    <p className="mt-2 max-w-xs text-sm leading-6 text-[#747993]">
+                                        We&rsquo;ve got your email and we&rsquo;ll get back to
+                                        you as soon as we can.
+                                    </p>
+
+                                    <button
+                                        type="button"
+                                        onClick={handleClose}
+                                        className="mt-7 w-full cursor-pointer rounded-full bg-[#171A4B] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_15px_35px_rgba(23,26,75,0.35)] transition-colors hover:bg-[#292C82]"
+                                    >
+                                        Close
+                                    </button>
+                                </motion.div>
+                            ) : (
+                                /* ================= FORM ================= */
+                                <motion.form
+                                    key="form"
+                                    initial="hidden"
+                                    animate="show"
+                                    exit={{ opacity: 0 }}
+                                    variants={container}
+                                    onSubmit={handleSubmit}
+                                    className="relative flex flex-col gap-3.5 px-6 pb-7 pt-6 sm:px-8"
+                                >
+                                    <fieldset
+                                        disabled={status === 'sending'}
+                                        className="contents disabled:opacity-60"
+                                    >
+                                        <FieldShell icon={FiUser} accent="bg-[#E4F8F5] text-[#27BDB2]">
+                                            <input
+                                                type="text"
+                                                required
+                                                value={name}
+                                                onChange={(e) => setName(e.target.value)}
+                                                placeholder="Your name"
+                                                className={inputClasses}
+                                            />
+                                        </FieldShell>
+
+                                        <FieldShell icon={FiPhone} accent="bg-[#EAE9FF] text-[#5552C8]">
+                                            <input
+                                                type="tel"
+                                                value={phone}
+                                                onChange={(e) => setPhone(e.target.value)}
+                                                placeholder="Phone number"
+                                                className={inputClasses}
+                                            />
+                                        </FieldShell>
+
+                                        <FieldShell icon={FiMail} accent="bg-[#FFF2E7] text-[#E88B4A]">
+                                            <input
+                                                type="email"
+                                                required
+                                                value={email}
+                                                onChange={(e) => setEmail(e.target.value)}
+                                                placeholder="Email address"
+                                                className={inputClasses}
+                                            />
+                                        </FieldShell>
+
+                                        <motion.div
+                                            variants={fieldUp}
+                                            className="group relative flex items-start gap-3 rounded-2xl border border-[#E9EAF2] bg-white px-4 py-3 transition-all duration-300 focus-within:border-transparent focus-within:shadow-[0_0_0_2px_#3DC5B8,0_8px_24px_rgba(61,197,184,0.18)]"
                                         >
-                                            Opening your email
-                                            <FiSend className="animate-pulse" />
-                                        </motion.span>
-                                    ) : (
-                                        <motion.span
-                                            key="idle"
-                                            initial={{ opacity: 0, y: 6 }}
+                                            <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#FDEAF3] text-sm text-[#C24E86] transition-transform duration-300 group-focus-within:scale-110">
+                                                <FiMessageSquare />
+                                            </span>
+                                            <textarea
+                                                required
+                                                value={comment}
+                                                onChange={(e) => setComment(e.target.value)}
+                                                placeholder="How can we help?"
+                                                rows={4}
+                                                className={`${inputClasses} resize-none pt-1.5`}
+                                            />
+                                        </motion.div>
+                                    </fieldset>
+
+                                    {status === 'error' && (
+                                        <motion.p
+                                            initial={{ opacity: 0, y: -6 }}
                                             animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0, y: -6 }}
-                                            transition={{ duration: 0.2 }}
-                                            className="flex items-center gap-2"
+                                            className="flex items-center gap-2 rounded-2xl bg-[#FDF6F6] px-4 py-3 text-sm text-[#B84B4E]"
                                         >
-                                            Send message
-                                            <FiArrowUpRight className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                                        </motion.span>
+                                            <FiAlertTriangle className="shrink-0" />
+                                            Something went wrong sending your message. Please
+                                            try again.
+                                        </motion.p>
                                     )}
-                                </AnimatePresence>
-                            </motion.button>
-                        </motion.form>
+
+                                    <motion.button
+                                        variants={fieldUp}
+                                        type="submit"
+                                        disabled={status === 'sending'}
+                                        whileHover={status === 'sending' ? undefined : { y: -2 }}
+                                        whileTap={status === 'sending' ? undefined : { scale: 0.97 }}
+                                        transition={{ duration: 0.2, ease: 'easeOut' }}
+                                        className="group relative mt-2 flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-[#171A4B] to-[#292C82] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_15px_35px_rgba(23,26,75,0.35)] transition-opacity disabled:cursor-not-allowed disabled:opacity-80"
+                                    >
+                                        {/* Shine sweep */}
+                                        <span className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/3 -skew-x-12 bg-white/20 opacity-0 transition-all duration-700 group-hover:left-[120%] group-hover:opacity-100" />
+
+                                        <AnimatePresence mode="wait" initial={false}>
+                                            {status === 'sending' ? (
+                                                <motion.span
+                                                    key="sending"
+                                                    initial={{ opacity: 0, y: 6 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity: 0, y: -6 }}
+                                                    transition={{ duration: 0.2 }}
+                                                    className="flex items-center gap-2"
+                                                >
+                                                    <motion.span
+                                                        animate={{ rotate: 360 }}
+                                                        transition={{ duration: 0.8, repeat: Infinity, ease: 'linear' }}
+                                                        className="flex h-3.5 w-3.5 items-center justify-center rounded-full border-2 border-white/40 border-t-white"
+                                                    />
+                                                    Sending
+                                                </motion.span>
+                                            ) : (
+                                                <motion.span
+                                                    key="idle"
+                                                    initial={{ opacity: 0, y: 6 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity: 0, y: -6 }}
+                                                    transition={{ duration: 0.2 }}
+                                                    className="flex items-center gap-2"
+                                                >
+                                                    Send message
+                                                    <FiArrowUpRight className="transition-transform cursor-pointer duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                                                </motion.span>
+                                            )}
+                                        </AnimatePresence>
+                                    </motion.button>
+                                </motion.form>
+                            )}
+                        </AnimatePresence>
                     </motion.div>
                 </motion.div>
             )}

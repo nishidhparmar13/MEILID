@@ -87,11 +87,11 @@ const PoliciesHome = () => {
                     </p>
 
                     <a
-                        href="mailto:Revijunllc@gmail.com"
+                        href="mailto:revijunllc@gmail.com"
                         className="group mt-1 inline-flex items-center gap-2 rounded-full bg-[#171A4B] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#171A4B]/20 transition-colors hover:bg-[#292C82]"
                     >
                         <FiMail />
-                        Revijunllc@gmail.com
+                        revijunllc@gmail.com
                     </a>
                 </motion.div>
             </div>

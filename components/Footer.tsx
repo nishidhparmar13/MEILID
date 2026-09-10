@@ -92,7 +92,7 @@ const FooterButton = ({ onClick, children }: { onClick: () => void; children: Re
         onClick={onClick}
         whileHover={{ x: 3 }}
         transition={{ duration: 0.2, ease: 'easeOut' }}
-        className="flex w-fit items-center gap-1 text-sm text-white/60 transition-colors hover:text-[#5EDBD0]"
+        className="flex w-fit items-center gap-1 text-sm cursor-pointer text-white/60 transition-colors hover:text-[#5EDBD0]"
     >
         {children}
     </motion.button>
@@ -115,7 +115,7 @@ const Footer = () => {
             <div className="relative z-10 mx-auto max-w-7xl">
 
                 {/* ================= TOP CTA ================= */}
-                <motion.div
+                {/* <motion.div
                     initial={{ opacity: 0, y: 28 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.4 }}
@@ -123,7 +123,6 @@ const Footer = () => {
                     className="mb-12 flex flex-col gap-7 rounded-[24px] border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-xl sm:mb-14 sm:gap-8 sm:rounded-[28px] sm:p-7 md:flex-row md:items-center md:justify-between md:p-9"
                 >
 
-                    {/* Text */}
                     <div>
                         <div className="flex items-center gap-2.5">
                             <motion.span
@@ -146,7 +145,6 @@ const Footer = () => {
                         </p>
                     </div>
 
-                    {/* Newsletter */}
                     <div className="flex w-full flex-col gap-3 sm:flex-row md:max-w-md">
                         <div className="flex h-12 flex-1 items-center gap-3 rounded-full border border-white/10 bg-white/[0.05] px-5 transition-colors duration-300 focus-within:border-[#3DC5B8]/50">
                             <FiMail className="shrink-0 text-white/35" />
@@ -170,7 +168,7 @@ const Footer = () => {
                         </motion.button>
                     </div>
 
-                </motion.div>
+                </motion.div> */}
 
 
                 {/* ================= MAIN FOOTER ================= */}
@@ -270,12 +268,12 @@ const Footer = () => {
                         </p>
 
                         <motion.a
-                            href="mailto:Revijunllc@gmail.com"
+                            href="mailto:revijunllc@gmail.com"
                             whileHover={{ x: 3 }}
                             transition={{ duration: 0.2, ease: 'easeOut' }}
                             className="group mt-5 inline-flex items-center gap-2 text-sm font-medium text-white transition-colors hover:text-[#5EDBD0]"
                         >
-                            Revijunllc@gmail.com
+                            revijunllc@gmail.com
                             <FiArrowUpRight className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                         </motion.a>
                     </motion.div>
