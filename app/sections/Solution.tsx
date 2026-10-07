@@ -237,7 +237,7 @@ const Solution = () => {
                         </motion.div>
 
                         {/* Floating badge */}
-                        <motion.div
+                        {/* <motion.div
                             initial={{ opacity: 0, x: -20, y: 10 }}
                             whileInView={{ opacity: 1, x: 0, y: 0 }}
                             viewport={{ once: true }}
@@ -262,7 +262,7 @@ const Solution = () => {
                                     </p>
                                 </div>
                             </motion.div>
-                        </motion.div>
+                        </motion.div> */}
 
 
                         {/* Floating time badge */}
@@ -279,7 +279,7 @@ const Solution = () => {
                                 className="flex items-center gap-2.5 rounded-2xl border border-white/80 bg-[#171A4B] px-3.5 py-3 text-white shadow-xl shadow-[#171A4B]/20 sm:gap-3 sm:px-5 sm:py-4"
                             >
                                 <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#3DC5B8] text-sm font-bold sm:h-10 sm:w-10 sm:text-base">
-                                    <AnimatedStat value="60" delay={1.1} />
+                                    <AnimatedStat value="20" delay={1.1} />
                                 </div>
 
                                 <div>

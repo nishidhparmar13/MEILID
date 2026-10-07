@@ -104,12 +104,11 @@ const WhyMEILID = () => {
                     </motion.div>
 
                     <motion.h2 variants={fadeUp} className="heading mt-5 sm:mt-6">
-                        A <span className="heading-highlight">different approach </span> to eyelid care
+                        A <span className="heading-highlight">different enhanced </span> to eyelid care
                     </motion.h2>
 
                     <motion.p variants={fadeUp} className="sub-heading mt-4 sm:mt-5">
-                        Most methods focus on quick fixes. MEILID takes a
-                        different approach — supporting a simple, consistent daily eyelid hygiene routine.
+                        MEILID is supports a simple, consistent, daily eyelid hygiene routine
                     </motion.p>
 
                 </motion.div>
@@ -119,7 +118,7 @@ const WhyMEILID = () => {
                 <div className="relative mx-auto mt-12 w-full max-w-6xl sm:mt-16">
 
                     {/* Floating centre badge */}
-                    <motion.div
+                    {/* <motion.div
                         initial={{ opacity: 0, y: 10, scale: 0.9 }}
                         whileInView={{ opacity: 1, y: 0, scale: 1 }}
                         viewport={{ once: true }}
@@ -134,14 +133,14 @@ const WhyMEILID = () => {
                             <HiOutlineSparkles className="text-[#2FC8BA]" />
                             The MEILID Difference
                         </motion.div>
-                    </motion.div>
+                    </motion.div> */}
 
 
-                    <div className="grid overflow-hidden rounded-[1.5rem] border border-white bg-white shadow-[0_25px_80px_rgba(35,39,100,0.10)] sm:rounded-[2rem] md:grid-cols-2">
+                    <div className="grid overflow-hidden rounded-[1.5rem] border border-white bg-white shadow-[0_25px_80px_rgba(35,39,100,0.10)] ">
 
 
                         {/* Traditional Methods */}
-                        <motion.div
+                        {/* <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
@@ -149,7 +148,6 @@ const WhyMEILID = () => {
                             className="relative"
                         >
 
-                            {/* Header */}
                             <div className="border-b border-neutral-200 bg-[#F4F5F8] px-5 py-6 sm:px-7 sm:py-8 md:px-10">
 
                                 <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-neutral-400 sm:text-xs sm:tracking-[0.18em]">
@@ -167,7 +165,6 @@ const WhyMEILID = () => {
                             </div>
 
 
-                            {/* Rows */}
                             <motion.div
                                 initial="hidden"
                                 whileInView="show"
@@ -195,7 +192,7 @@ const WhyMEILID = () => {
                                 ))}
                             </motion.div>
 
-                        </motion.div>
+                        </motion.div> */}
 
 
                         {/* MEILID */}
