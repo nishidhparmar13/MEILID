@@ -286,9 +286,14 @@ const Footer = () => {
 
                 <div className="flex flex-col items-center gap-4 text-center text-xs text-white/35 md:flex-row md:items-center md:justify-between md:text-left">
 
-                    <p>
-                        © {new Date().getFullYear()} MEILID. All rights reserved.
-                    </p>
+                    <div className="flex flex-col gap-1">
+                        <p>
+                            © {new Date().getFullYear()} MEILID. All rights reserved.
+                        </p>
+                        <p className="text-white/25">
+                            &quot;MEILID&quot; is a trademark of Revijun LLC. Patent pending.
+                        </p>
+                    </div>
 
                     <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 md:justify-start">
                         <a href="/policies/privacy" className="transition-colors hover:text-white/70">

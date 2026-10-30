@@ -175,7 +175,7 @@ const Solution = () => {
                     </motion.div>
 
                     <motion.h2 variants={fadeUp} className="heading mt-5 sm:mt-6">
-                        Meet <span className="heading-highlight">MEILID</span>: the at-home eyelid care system that actually works
+                        Meet <span className="heading-highlight">MEILID</span><sup className="ml-0.5 align-super text-[0.3em] font-normal">TM</sup>: the at-home eyelid care system that actually works
                     </motion.h2>
 
                     <motion.p variants={fadeUp} className="sub-heading mt-4 max-w-2xl sm:mt-5">
@@ -225,7 +225,7 @@ const Solution = () => {
                             style={{ x: tiltX, y: tiltY, rotateX, rotateY }}
                             className="relative z-10 flex h-[260px] w-[260px] items-center justify-center rounded-[50%] sm:h-[320px] sm:w-[320px] lg:h-[380px] lg:w-[380px]"
                         >
-                            <div className='w-full h-full overflow-hidden flex items-center bg-white rounded-full'>
+                            <div className='relative w-full h-full overflow-hidden flex items-center bg-white rounded-full'>
                                 <motion.img
                                     src="/images/solution.png"
                                     alt="MEILID eyelid care device"
@@ -233,6 +233,9 @@ const Solution = () => {
                                     transition={{ duration: 0.4, ease }}
                                     className="relative z-20 w-full object-cover "
                                 />
+                                <span className="pointer-events-none absolute left-[18%] top-[73%] z-30 whitespace-nowrap text-[8px] uppercase tracking-wide text-[#111] sm:text-[10px]">
+                                    Patent Pending
+                                </span>
                             </div>
                         </motion.div>
 
